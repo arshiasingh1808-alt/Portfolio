@@ -1,0 +1,298 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: #0f001a;
+    font-family: system-ui, sans-serif;
+    margin: 0;
+}
+
+.page-layout {
+    min-height: 100vh;
+    display: flex;
+}
+
+
+.sidebar {
+    position: fixed;
+    top: 20;
+    left: 20;
+    bottom: 20px;
+    width: 340px;
+    height: 100vh;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow-y: hidden;
+    z-index: 10;
+}
+
+.sidebar .card {
+  width: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: clamp(10px, 2vh, 20px) 10px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+}
+
+.card{
+    position: relative;
+    background: white;
+    padding: 20px 10px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(221, 8, 221, 1.811);
+    text-align: center;
+    width: min(400px, 90vw);
+    height:auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 10px;
+}
+.card-photo{
+    margin: 0 auto;
+    border-color: white;
+    border-style: solid;
+    border-width: 4px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-position: center 5%;
+    box-sizing: border-box;
+}
+
+.card-name{
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-top: 16px;
+}
+.card-title{
+    font-size: 1.9rem;
+    color: #6b7280;
+    margin-top: 4px;
+}
+.card-socials{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+    padding-bottom: 24px;
+}
+.card-socials a{
+text-decoration: none;
+color: #4b5563;
+font-size: 1.15rem;
+font-weight: 500;
+transition: color 0.2s ease;
+}
+.card-socials a:hover{
+    color: #111827;
+}
+.card-badge{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: #16a34a;
+    background: #f0fdf4;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+}
+.card-badge-dot{
+    width: 6px;
+    height: 6px;
+    background: #16a34a;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+@keyframes pulse{
+    0%, 100%{opacity:1;}
+    50%{opacity:0.3;}
+}
+.card-avatar-wrapper{
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #667eea);
+    background-size: 300% 300%;
+    animation: gradientShift 4s ease infinite;
+    overflow: hidden;
+}
+@keyframes gradientShift{
+    0%{background-position: 0% 50%;}
+    50%{background-position: 100% 50%;}
+    100%{background-position: 0% 50%;}
+}
+.card-skills{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:  8px;
+    margin-top: 16px
+}
+.card-skills span{
+    font-size: 1.25rem;
+    padding: 5px 10px;
+    background: #f3f4f6;
+    color: rgb(118, 75, 162);
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.card-skills span:hover{
+    background: linear-gradient(135deg, #f093fb, #667eea);
+    color: white;
+}
+
+.about-card {
+    position: relative;
+    width: 100%;
+    max-width: 750px;
+    height: auto;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 24px;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 8px 32px rgba(118, 75, 162, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+    color: white;
+    text-align: left;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+
+.about-card:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 15px 40px rgba(118, 75, 162, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.about-label {
+    display: inline-block;
+    color: #d8b4fe;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 14px;
+}
+
+.about-card h2 {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    color: #ffffff;
+}
+
+.about-card h2 span {
+    background: linear-gradient(90deg, #a78bfa, #f0abfc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: flex;
+    height: auto;
+}
+
+.about-intro {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.about-description {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.about-tags span {
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+
+    background: rgba(167, 139, 250, 0.12);
+    border: 1px solid rgba(196, 181, 253, 0.2);
+    color: #e9d5ff;
+}
+
+.main-content {
+    margin-left: 380px;
+    width: calc(100% - 380px);
+    min-width: 0;
+    min-height: 100vh;
+    padding: 35px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+@media (max-width: 768px) {
+    .page-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        margin: 20px 20px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .card-avatar-wrapper {
+        width: 180px;
+        height: 180px;
+    }
+
+    .about-card {
+        padding: 22px;
+    }
+}
+.skills-group {
+    margin-top: 40px;                                /* space above the divider */
+    padding-top: 32px;                               /* space below the divider */
+    border-top: 1px solid rgba(196, 181, 253, 0.2);  /* faint purple line */
+    gap: 12px;
+}
